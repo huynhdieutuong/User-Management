@@ -3,6 +3,10 @@ extends ../layouts/common.pug
 block content
 	h1 Create user
 
+	if errors
+		each error in errors
+			div(class="alert alert-danger" role="alert")= error
+
 	form(class="col-md-4" action="/users/create" method="POST")
 		div(class="form-group mb-2")
 			label(for="name" class="mr-2") Name
