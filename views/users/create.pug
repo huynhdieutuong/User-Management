@@ -1,0 +1,14 @@
+extends ../layouts/common.pug
+
+block content
+	h1 Create user
+
+	form(class="col-md-4" action="/users/create" method="POST")
+		div(class="form-group mb-2")
+			label(for="name" class="mr-2") Name
+			input(id="name" type="text" name="name" class="form-control")
+		div(class="form-group mb-2")
+			label(for="phone" class="mr-2") Phone
+			input(id="phone" type="text" name="phone" class="form-control")
+		div(class="form-group mb-2")
+			button(class="btn btn-primary") Create
