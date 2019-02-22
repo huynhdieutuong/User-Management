@@ -3,7 +3,14 @@
     {
       "name": "huynh",
       "phone": "1151121",
-      "id": "P82VQTe-e"
+      "id": "P82VQTe-e",
+      "email": "abc@gmail.com",
+      "password": "123"
+    },
+    {
+      "name": "Tuong",
+      "phone": "46464",
+      "id": "JyhMiwzVH"
     }
   ]
 }

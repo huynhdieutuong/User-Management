@@ -1,0 +1,18 @@
+extends ../layouts/common.pug
+
+block content
+	h1 Login
+
+	if errors
+		each error in errors
+			div(class="alert alert-danger" role="alert")= error
+
+	form(class="col-md-4" action="/auth/login" method="POST")
+		div(class="form-group mb-2")
+			label(for="email" class="mr-2") Email
+			input(id="email" type="text" name="email" class="form-control" value=values ? values.email : "")
+		div(class="form-group mb-2")
+			label(for="password" class="mr-2") Password
+			input(id="password" type="password" name="password" class="form-control" value=values ? values.password : "")
+		div(class="form-group mb-2")
+			button(class="btn btn-primary") Login
