@@ -8,6 +8,7 @@ var port = 4000;
 
 var usersRoute = require('./routes/users.route');
 var authRoute = require('./routes/auth.route');
+var productsRoute = require('./routes/products.route');
 
 var middleware = require('./middlewares/auth.middleware');
 
@@ -21,6 +22,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.use('/users', middleware.requireAuth, usersRoute);
 app.use('/auth', middleware.hadCookie, authRoute);
+app.use('/products', productsRoute);
 
 app.use(express.static('public'));
 
