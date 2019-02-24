@@ -1,3 +1,5 @@
+var md5 = require('md5');
+
 var db = require('../db');
 var shortid = require('shortid');
 
@@ -5,8 +7,10 @@ var users = db.get('users').value();
 
 //  Index
 module.exports.index = function(req, res) {
+	var user = db.get('users').find({ id: req.signedCookies.userId }).value();
 	res.render('users/index', {
-		users: users
+		users: users,
+		userName: user.name
 	});
 };
 
@@ -15,9 +19,11 @@ module.exports.create = function(req, res) {
 	res.render('users/create')
 };
 module.exports.postCreate = function(req, res) {
-	req.body.id = shortid.generate()
-	db.get('users').push(req.body).write()
-	res.redirect('/users')
+	req.body.id = shortid.generate();
+	req.body.password = md5(req.body.password);
+	req.body.avatar = req.file.path.split('\\').slice(1).join('/');
+	db.get('users').push(req.body).write();
+	res.redirect('/users');
 };
 
 // Search

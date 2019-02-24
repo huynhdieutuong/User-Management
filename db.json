@@ -1,16 +1,28 @@
 {
   "users": [
     {
-      "name": "huynh",
-      "phone": "1151121",
-      "id": "P82VQTe-e",
-      "email": "abc@gmail.com",
-      "password": "123"
+      "name": "Tong",
+      "phone": "5564454",
+      "email": "tong@gmail.com",
+      "password": "7fa994ef255bf3c63791cd42901a8e11",
+      "id": "QGBvOuLgK",
+      "avatar": "uploads/c62fe286bb22129328a8b62971fd55e1"
     },
     {
-      "name": "Tuong",
-      "phone": "46464",
-      "id": "JyhMiwzVH"
+      "name": "Hoang",
+      "phone": "445454",
+      "email": "hoang@gmail.com",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b",
+      "id": "QWJ9wG4_W",
+      "avatar": "uploads/39972aeaad12e9d9679d96bcaf244376"
+    },
+    {
+      "name": "Hoa",
+      "phone": "646545",
+      "email": "hoa@gmail.com",
+      "password": "202cb962ac59075b964b07152d234b70",
+      "id": "vUu5g13bJ",
+      "avatar": "uploads/d62c735111ef5d459c0aae2486f172ee"
     }
   ]
 }

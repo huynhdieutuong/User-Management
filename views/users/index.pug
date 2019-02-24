@@ -1,20 +1,27 @@
 extends ../layouts/common.pug
 
 block content
-	h1 List user
+	.d-flex.align-items-center
+		h1.flex-grow-1 List user
+		span= 'Hi ' + userName
 	table(class="table")
 		thead
 			tr
 				th(scope="col") #
+				th(scope="col") Avatar
 				th(scope="col") Name
 				th(scope="col") Phone
+				th(scope="col") Email
 				th(scope="col") Action
 		tbody
 			- var n = 1;
 			each user in users
 				tr
 					th(scope="row")= n++
+					td
+						img(src='/' + user.avatar width=50)
 					td= user.name
 					td= user.phone
+					td= user.email
 					td
 						a(href="/users/" + user.id) View

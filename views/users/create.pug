@@ -7,12 +7,25 @@ block content
 		each error in errors
 			div(class="alert alert-danger" role="alert")= error
 
-	form(class="col-md-4" action="/users/create" method="POST")
+	form(class="col-md-4" action="/users/create" method="POST" form tag enctype="multipart/form-data")
 		div(class="form-group mb-2")
 			label(for="name" class="mr-2") Name
-			input(id="name" type="text" name="name" class="form-control")
+			input(id="name" type="text" name="name" class="form-control" value=values ? values.name : "")
+
 		div(class="form-group mb-2")
 			label(for="phone" class="mr-2") Phone
-			input(id="phone" type="text" name="phone" class="form-control")
+			input(id="phone" type="text" name="phone" class="form-control" value=values ? values.phone : "")
+
+		div(class="form-group mb-2")
+			label(for="email" class="mr-2") Email
+			input(id="email" type="email" name="email" class="form-control" value=values ? values.email : "")
+
+		div(class="form-group mb-2")
+			label(for="password" class="mr-2") Password
+			input(id="password" type="password" name="password" class="form-control" value=values ? values.password : "")
+
+		div(class="form-group mb-2")
+			input(id="file" type="file" name="avatar")
+
 		div(class="form-group mb-2")
 			button(class="btn btn-primary") Create
