@@ -5,15 +5,27 @@ block content
 
 	nav.d-flex.justify-content-end
 		ul.pagination
-			li.page-item( class = (x === 0) ? "disabled" : "")
-				a.page-link(href='?page=' + arrs[(x-1 < 0) ? 0 : x-1][2]) Previous
+			//- Old pagination
+			//- li.page-item( class = (x === 0) ? "disabled" : "")
+			//- 	a.page-link(href='?page=' + arrs[(x-1 < 0) ? 0 : x-1][2]) Previous
 			
-			each arr in arrs[x]
-				li.page-item( class = (arr === page) ? "active" : "")
-					a.page-link(href='?page=' + arr)= arr
+			//- each arr in arrs[x]
+			//- 	li.page-item( class = (arr === page) ? "active" : "")
+			//- 		a.page-link(href='?page=' + arr)= arr
 			
-			li.page-item( class = (x === totalPagis-1) ? "disabled" : "")
-				a.page-link(href='?page=' + arrs[(x+1 > totalPagis-1) ? totalPagis-1 : x+1][0]) Next
+			//- li.page-item( class = (x === totalPagis-1) ? "disabled" : "")
+			//- 	a.page-link(href='?page=' + arrs[(x+1 > totalPagis-1) ? totalPagis-1 : x+1][0]) Next
+
+			//- New pagination (like tiki.vn)
+			li.page-item(class = (page<=1) ? "disabled" : "")
+				a.page-link(href='?page=' + ((page===totalPages) ? totalPages-1 : showPages[0]) ) Previous
+
+			each showPage in showPages
+				li.page-item(class = (showPage===page) ? "active" : "")
+					a.page-link(href='?page=' + showPage)= showPage
+
+			li.page-item(class = (page===totalPages) ? "disabled" : "")
+				a.page-link(href='?page=' + ((page===1) ? 2 : showPages[2]) ) Next
 
 	.row
 		each product in products
