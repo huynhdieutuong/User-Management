@@ -9,8 +9,10 @@ var port = 4000;
 var usersRoute = require('./routes/users.route');
 var authRoute = require('./routes/auth.route');
 var productsRoute = require('./routes/products.route');
+var cartRoute = require('./routes/cart.route');
 
 var middleware = require('./middlewares/auth.middleware');
+var sessionMiddleware = require('./middlewares/session.middleware');
 
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -20,9 +22,11 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
+app.use(sessionMiddleware);
 app.use('/users', middleware.requireAuth, usersRoute);
 app.use('/auth', middleware.hadCookie, authRoute);
 app.use('/products', productsRoute);
+app.use('/cart', cartRoute);
 
 app.use(express.static('public'));
 

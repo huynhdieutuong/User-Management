@@ -84,11 +84,23 @@ module.exports.index = function(req, res, next) {
 		
 	var arrStart = lodash.drop(arrPages, start);
 
+	// Show numbers of products added to cart
+	var cart = db.get('sessions')
+		.find({ id: req.signedCookies.sessionId })
+		.get('cart')
+		.value();
+
+	var numbers = 0;
+	for (var product in cart) {
+		numbers += cart[product];
+	}
+
 	// Render
 	res.render('products/index', {
 		products: db.get('products').drop(drop).take(perPage).value(),
 		page: page,
 		showPages: lodash.take(arrStart, 3),
-		totalPages: totalPages
+		totalPages: totalPages,
+		numbers: numbers
 	})
 }

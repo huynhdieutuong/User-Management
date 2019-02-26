@@ -13,6 +13,9 @@ nav(class="navbar navbar-expand-lg navbar-light bg-light")
 					a(class="nav-link" href="/users/create") Create
 				li(class="nav-item")
 					a(class="nav-link" href="/products") Products
+				li(class="nav-item")
+					a(class="nav-link" href="#")= 'Cart ' + numbers
+
 
 			form(class="form-inline my-2 my-lg-0" action="/users/search" method="GET")
 				input(class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value=xxx)

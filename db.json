@@ -706,5 +706,43 @@
       "description": "quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere",
       "image": "https://loremflickr.com/320/240"
     }
+  ],
+  "sessions": [
+    {
+      "id": "3wepm4jyG",
+      "cart": {
+        "0e76dacd-0bbd-499d-b6d8-05c71221239c": 3,
+        "db9089e2-c79e-4d16-81e9-5d05647dff32": 2,
+        "5fffaebe-ba87-42d3-9727-f7cf46fbcd12": 1
+      }
+    },
+    {
+      "id": "H347yr7qP",
+      "cart": {
+        "0e76dacd-0bbd-499d-b6d8-05c71221239c": 1
+      }
+    },
+    {
+      "id": "Uo35mh8sm",
+      "cart": {
+        "db9089e2-c79e-4d16-81e9-5d05647dff32": 1,
+        "0e76dacd-0bbd-499d-b6d8-05c71221239c": 1
+      }
+    },
+    {
+      "id": "tbtgME-5o",
+      "cart": {
+        "0e76dacd-0bbd-499d-b6d8-05c71221239c": 4,
+        "a46c0684-395f-4b3d-b92a-c952f3de5128": 1,
+        "5fffaebe-ba87-42d3-9727-f7cf46fbcd12": 1
+      }
+    },
+    {
+      "id": "dagdJ-Y1j",
+      "cart": {
+        "0e76dacd-0bbd-499d-b6d8-05c71221239c": 2,
+        "5fffaebe-ba87-42d3-9727-f7cf46fbcd12": 1
+      }
+    }
   ]
 }
