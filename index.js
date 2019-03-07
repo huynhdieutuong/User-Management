@@ -24,14 +24,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
-app.use(csurf({ cookie: true }));
-
 app.use(sessionMiddleware);
 app.use('/users', middleware.requireAuth, usersRoute);
 app.use('/auth', middleware.hadCookie, authRoute);
 app.use('/products', productsRoute);
 app.use('/cart', cartRoute);
-app.use('/transfer', middleware.requireAuth, transferRoute);
+app.use('/transfer', csurf({ cookie: true }), middleware.requireAuth, transferRoute);
 
 app.use(express.static('public'));
 
