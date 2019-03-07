@@ -1,12 +1,13 @@
-var db = require('../db');
+var User = require('../models/user.model');
 
-module.exports.requireAuth = function(req, res, next) {
+module.exports.requireAuth = async function(req, res, next) {
 	if (!req.signedCookies.userId) {
 		res.redirect('/auth/login')
 		return;
 	}
+	var userId = req.signedCookies.userId;
 
-	var user = db.get('users').find({ id: req.signedCookies.userId }).value();
+	var user = await User.findById(userId);
 
 	if (!user) {
 		res.redirect('/auth/login')
@@ -15,8 +16,10 @@ module.exports.requireAuth = function(req, res, next) {
 	next();
 };
 
-module.exports.hadCookie = function(req, res, next) {
-	var user = db.get('users').find({ id: req.signedCookies.userId }).value();
+module.exports.hadCookie = async function(req, res, next) {
+	var userId = req.signedCookies.userId;
+
+	var user = await User.findById(userId);
 	
 	if (user) {
 		res.redirect('/users')

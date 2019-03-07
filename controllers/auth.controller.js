@@ -1,13 +1,14 @@
 var md5 = require('md5');
 
-var db = require('../db');
+var User = require('../models/user.model');
 
 // Login
 module.exports.login = function(req, res) {
 	res.render('auth/login')
 };
-module.exports.postLogin = function(req, res) {
-	var user = db.get('users').find({ email: req.body.email }).value();
+module.exports.postLogin = async function(req, res) {
+	var user = await User.findOne({ email: req.body.email });
+
 	var password = req.body.password;
 
 	if(!req.body.email) {

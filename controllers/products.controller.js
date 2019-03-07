@@ -1,16 +1,16 @@
-var db = require('../db');
 var lodash = require('lodash');
 
-var products = db.get('products').value();
+var Product = require('../models/product.model');
 
-module.exports.index = function(req, res, next) {
+module.exports.index = async function(req, res, next) {
+	var products = await Product.find();
 	
 	// Show products
 	var page = parseInt(req.query.page) || 1;
 	var perPage = 8;
 
 	var drop = (page - 1) * perPage;
-
+	var start = lodash.drop(products, drop);
 
 	// Show pagination
 	var totalPages = Math.ceil(products.length / perPage);
@@ -25,7 +25,7 @@ module.exports.index = function(req, res, next) {
 
 	// Render
 	res.render('products/index', {
-		products: db.get('products').drop(drop).take(perPage).value(),
+		products: lodash.take(start, perPage),
 		page: page,
 	    firstPage: firstPage,
 	    endPage: endPage
