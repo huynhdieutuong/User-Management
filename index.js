@@ -38,7 +38,7 @@ app.use('/transfer', csurf({ cookie: true }), middleware.requireAuth, transferRo
 
 app.use(express.static('public'));
 
-var port = 4000;
+var port = process.env.PORT || 4000;
 app.listen(port, function() {
 	console.log('Example app listening on port ' + port)
 });
