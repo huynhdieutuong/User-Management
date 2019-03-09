@@ -5,8 +5,12 @@ var app = express();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 var csurf = require('csurf');
+
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URL);
+
+var cloudinary = require('cloudinary');
+cloudinary.config(process.env.CLOUDINARY_URL);
 
 var usersRoute = require('./routes/users.route');
 var authRoute = require('./routes/auth.route');
