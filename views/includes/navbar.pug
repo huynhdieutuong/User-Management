@@ -6,17 +6,14 @@ nav(class="navbar navbar-expand-lg navbar-light bg-light")
 			span(class="navbar-toggler-icon")
 		div(class="collapse navbar-collapse" id="navbarSupportedContent")
 			ul(class="navbar-nav mr-auto")
-				li(class="nav-item active")
-					a(class="nav-link" href="/users") List User
-						span(class="sr-only") (current)
+				li.nav-item.dropdown
+					a#navbarDropdown.nav-link.dropdown-toggle(href='/users', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') User
+					.dropdown-menu(aria-labelledby='navbarDropdown')
+						a.dropdown-item(href='/users') List User
+						a.dropdown-item(href='/users/create') Create
 				li(class="nav-item")
-					a(class="nav-link" href="/users/create") Create
+					a(class="nav-link" href="/transfer/create") Transfer
 				li(class="nav-item")
 					a(class="nav-link" href="/products") Products
 				li(class="nav-item")
 					a(class="nav-link" href="#")= 'Cart ' + numbers
-
-
-			form(class="form-inline my-2 my-lg-0" action="/users/search" method="GET")
-				input(class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value=xxx)
-				button(class="btn btn-outline-success my-2 my-sm-0" type="submit") Search

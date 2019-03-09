@@ -4,7 +4,12 @@ block content
 	.d-flex.align-items-center
 		h1.flex-grow-1 List user
 		span= 'Hi ' + userName
-	table(class="table")
+
+	form(class="form-inline my-2 my-lg-0" action="/users/search" method="GET")
+		input(class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value=xxx)
+		button(class="btn btn-outline-success my-2 my-sm-0" type="submit") Search
+
+	table(class="table mt-4")
 		thead
 			tr
 				th(scope="col") #
